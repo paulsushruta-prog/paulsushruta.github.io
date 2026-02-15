@@ -1,1 +1,272 @@
 # paulsushruta.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Titli 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #E6E6FA 0%, #FFB6C1 50%, #F8F1F1 100%);
+            color: #2C3E50;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 2s ease-in;
+        }
+        
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: #D4A574;
+            margin-bottom: 1rem;
+            animation: slideInDown 1.5s ease-out;
+        }
+        
+        .hero .passage {
+            font-style: italic;
+            font-size: 1.5rem;
+            max-width: 90%;
+            line-height: 1.6;
+            animation: slideInUp 1.5s ease-out 0.5s both;
+        }
+        
+        .moments {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .moments h2 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #D4A574;
+            margin-bottom: 3rem;
+        }
+        
+        .link-btn {
+            display: block;
+            margin: 3rem auto;
+            background: linear-gradient(45deg, #FF69B4, #D4A574);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            max-width: 300px;
+        }
+        
+        .link-btn:hover { transform: scale(1.1); }
+        
+        /* Popup Overlay */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .popup-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transform: scale(0.8) rotate(-5deg);
+            animation: popupIn 0.6s ease-out forwards;
+            position: relative;
+        }
+        
+        .popup-card h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+        
+        .popup-card p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .popup-image {
+            width: 100%;
+            height: 200px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #FF69B4;
+        }
+        
+        .final {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(212, 165, 116, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .final-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: #eee;
+            border-radius: 20px;
+            margin: 2rem auto;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .confess-btn {
+            background: linear-gradient(45deg, #FF69B4, #D4A574);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .confess-btn:hover { transform: scale(1.1); }
+        
+        #hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+        .heart { position: absolute; font-size: 2rem; color: #FF69B4; animation: float 3s linear infinite; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInDown { from { transform: translateY(-100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideInUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100px) rotate(360deg); opacity: 0; } }
+        @keyframes popupIn { to { transform: scale(1) rotate(0deg); } }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .popup-card { margin: 2rem; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>My good girl Titli 💕</h1>
+        <p class="passage">You fell in love with me in our junior class when I picked you up💪🏻. But when my time came to fall for the prettiest cutest and the best ever girl in the world, this dumbo fell a hundred times without noticing 😮‍💨🤧. Yes it wasn't just a moment..... it were many that made me fall for you💓.</p>
+    </div>
+    
+    <section class="moments">
+        <h2>Our Crush Moments</h2>
+        <a href="#" class="link-btn" onclick="openPopup(1); return false;">let me tell you 🙃</a>
+    </section>
+    
+    <!-- 7 Popup Cards -->
+    <div class="popup-overlay" id="popup1">
+        <div class="popup-card">
+            <button class="close-btn" onclick="closePopup(1)">×</button>
+            <div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/FFB6C1/FFF?text=Moment+1');"></div>
+            <h3>Moment 1</h3>
+            <p>[Add 4-5 sentences for moment 1 here]</p>
+            <button onclick="nextPopup(1)">Next →</button>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup2"><div class="popup-card"><button class="close-btn" onclick="closePopup(2)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/E6E6FA/FFF?text=Moment+2');"></div><h3>Moment 2</h3><p>[Add 4-5 sentences for moment 2 here]</p><button onclick="nextPopup(2)">Next →</button></div></div>
+    <div class="popup-overlay" id="popup3"><div class="popup-card"><button class="close-btn" onclick="closePopup(3)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/F8F1F1/2C3E50?text=Moment+3');"></div><h3>Moment 3</h3><p>[Add 4-5 sentences for moment 3 here]</p><button onclick="nextPopup(3)">Next →</button></div></div>
+    <div class="popup-overlay" id="popup4"><div class="popup-card"><button class="close-btn" onclick="closePopup(4)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/FFB6C1/FFF?text=Moment+4');"></div><h3>Moment 4</h3><p>[Add 4-5 sentences for moment 4 here]</p><button onclick="nextPopup(4)">Next →</button></div></div>
+    <div class="popup-overlay" id="popup5"><div class="popup-card"><button class="close-btn" onclick="closePopup(5)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/E6E6FA/FFF?text=Moment+5');"></div><h3>Moment 5</h3><p>[Add 4-5 sentences for moment 5 here]</p><button onclick="nextPopup(5)">Next →</button></div></div>
+    <div class="popup-overlay" id="popup6"><div class="popup-card"><button class="close-btn" onclick="closePopup(6)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/F8F1F1/2C3E50?text=Moment+6');"></div><h3>Moment 6</h3><p>[Add 4-5 sentences for moment 6 here]</p><button onclick="nextPopup(6)">Next →</button></div></div>
+    <div class="popup-overlay" id="popup7"><div class="popup-card"><button class="close-btn" onclick="closePopup(7)">×</button><div class="popup-image" style="background-image: url('https://via.placeholder.com/400x200/FFB6C1/FFF?text=Moment+7');"></div><h3>Moment 7</h3><p>[Add 4-5 sentences for moment 7 here]</p><button onclick="closeAllPopups()">Done 💕</button></div></div>
+    
+    <section class="final">
+        <p>Every moment grew my love deeper. So deep in my heart that I got just light touches of those. But I think this was the beginning of the base of this love story of mine. 
+        And then came that day. The day I truly believe which changed my life and gave the spine of the base. You can say 24th September, the sapling which germinated inside the earth, came out in the nature and grew its first leaves.
+        I got sparks from my heart to kidney. From then you became my most thought thing in my mind. You became the person I love. 
+        The next day when you asked that what should we do now, shall we be lovey dovey or continue as we were. Then I could not think about anything else than jump in the pool. Nothing else came into my mind. 
+        <strong>And from that pool, we've been swimming together in this beautiful love ever since. 💕</strong></p>
+        <div class="final-image" style="background-image: url('https://via.placeholder.com/400x300/E6E6FA/FFB6C1?text=Our+Photo');"></div>
+        <h2>Will you be mine forever?</h2>
+        <button class="confess-btn" onclick="confess()">Yes, I love you too! 💕</button>
+    </section>
+    
+    <div id="hearts"></div>
+    
+    <script>
+        let currentPopup = 0;
+        
+        function openPopup(num) {
+            document.getElementById(`popup${num}`).style.display = 'flex';
+            currentPopup = num;
+        }
+        
+        function closePopup(num) {
+            document.getElementById(`popup${num}`).style.display = 'none';
+        }
+        
+        function nextPopup(num) {
+            closePopup(num);
+            if (num < 7) openPopup(num + 1);
+        }
+        
+        function closeAllPopups() {
+            for (let i = 1; i <= 7; i++) closePopup(i);
+        }
+        
+        function confess() {
+            confettiHearts();
+            alert('Thank you for being my everything, Titli! 😍');
+        }
+        
+        function confettiHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                heartsContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+    </script>
+</body>
+</html>
